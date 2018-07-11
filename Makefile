@@ -1,5 +1,6 @@
-cube:
-	g++ -std=c++11 -O3 cube.cxx -o cube
-once: cube
-	-./cube
+all:
+	g++ -std=c++11 -O3 main.cxx -o cube
+cube: all
+once: all
+	-./cube > solutions
 	-rm cube
