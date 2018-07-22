@@ -1,25 +1,8 @@
-#include<iostream>
-#include<ctime>
+#include "common.h"
 #include "cube.h"
 #include "piece.h"
 #include "cachedpiece.h"
 
-
-const int max_piece = 13;
-const int last_piece = max_piece - 1;
-
-std::ostream& get_time(std::ostream& out, time_t const& start)
-{
-  time_t end;
-  time(&end);//measure time when the calculation is done
-  int seconds = difftime(end, start);//subtract start from end and return seconds
-  int mins = seconds / 60;
-  seconds %= 60;
-  int hours = mins / 60;
-  mins %= 60;
-  out << hours << 'h' << mins << 'm' << seconds << 's';
-  return out;
-}
 
 int place(Cube const& start, CachedPiece* pieces, time_t const time)
 {
@@ -46,7 +29,7 @@ int place(Cube const& start, CachedPiece* pieces, time_t const time)
     while(not pieces[piece_nr].rotate() && //try rotating piece
       not pieces[piece_nr].next()) //rotated full circle, move piece instead
     {
-      pieces[piece_nr].set(piece_nr); //reinitialize piece
+      pieces[piece_nr].reset(); //reinitialize piece
       if(piece_nr == 1)
         return solutions; //tried all pieces
       total.remove(pieces[--piece_nr]); //all permutations tried, remove previous

@@ -18,6 +18,8 @@ public:
 
   CachedPiece(int number);
 
+  void reset();
+
   void set(int number);
 
   bool next();

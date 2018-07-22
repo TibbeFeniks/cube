@@ -5,6 +5,11 @@ CachedPiece::CachedPiece(int number) : pos(0), last(-1)
   set(number);
 }
 
+void CachedPiece::reset()
+{
+  map = permutations[pos = 0][rotation = 0];
+}
+
 void CachedPiece::set(int number)
 {
   if(number != last)
@@ -22,7 +27,7 @@ void CachedPiece::set(int number)
     }
     while(Piece::next());
   }
-  map = permutations[pos = 0][rotation = 0];
+  reset();
 }
 
 bool CachedPiece::next()
