@@ -1,5 +1,5 @@
 #pragma once
-#include "cube.cxx"
+#include "cube.h"
 
 
 class Piece : public Cube
@@ -85,6 +85,7 @@ protected:
     wi_piece, zs_piece, jl_piece, tt_piece, ll_piece,
     zl_piece, zt_piece, lv_piece, tl_piece, at_piece};
   static constexpr int max_rotations = 24;
+  static constexpr int last_rotation = max_rotations - 1;
   static constexpr int cycle_rotations[max_rotations] = {
     1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 3};
 

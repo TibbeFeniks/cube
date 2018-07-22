@@ -14,6 +14,9 @@ protected:
   static constexpr int movx = 1;
   static constexpr int movy = 4;
   static constexpr int movz = 16;
+  static constexpr int movxx = movx * 2;
+  static constexpr int movyy = movy * 2;
+  static constexpr int movzz = movz * 2;
   static constexpr bits zrot[8] = {
     0x33003300330033, 0xcc00cc00cc00cc, 0x3300330033003300, 0xcc00cc00cc00cc00,
     0x505050505050505, 0xa0a0a0a0a0a0a0a, 0x5050505050505050, 0xa0a0a0a0a0a0a0a0};

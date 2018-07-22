@@ -39,8 +39,7 @@ bool Piece::next()
 
 bool Piece::rotate()
 {
-  int n = cycle_rotations[rotation];
-  switch(n)
+  switch(cycle_rotations[rotation])
   {
     case 1:
       rotatez();
@@ -53,7 +52,7 @@ bool Piece::rotate()
       rotatey();
       break;
   }
-  if(rotation == max_rotations - 1)
+  if(rotation == last_rotation)
   {
     rotation = 0;
     return false;
