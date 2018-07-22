@@ -48,7 +48,7 @@ int main()
     pieces[i].set(i);
   do
     solutions += place(pieces[0], pieces, start);//place all pieces starting with first piece
-  while(pieces[0].next());//only move first piece, never rotate it
+  while(pieces[0].Piece::next());//only move first piece, never rotate it
   std::cout << "done at: ";
   get_time(std::cout, start) << std::endl;
   if(solutions) //solved

@@ -5,6 +5,15 @@ CachedPiece::CachedPiece(int number) : pos(0), last(-1)
   set(number);
 }
 
+bool CachedPiece::repeat_check() const
+{
+  for(rot_array array : permutations)
+    for(auto it = array.begin() + 1; it < array.end(); ++it)
+      if(*it == map)
+        return true;
+  return false;
+}
+
 void CachedPiece::reset()
 {
   map = permutations[pos = 0][rotation = 0];
@@ -19,6 +28,8 @@ void CachedPiece::set(int number)
     Piece::set(number);
     do
     {
+      if(repeat_check())
+        continue;
       rot_array rotset;
       do
         rotset[rotation] = map;
